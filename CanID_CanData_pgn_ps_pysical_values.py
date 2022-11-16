@@ -8,17 +8,19 @@ import math
 from collections import OrderedDict
 
 
-# DA_MASK = 0x0000EF00
+
 DA_MASK = 0x0000FF00
 
 SA_MASK = 0x000000FF
 
-# PF_MASK  = 0x01FF0000
-PF_MASK = 0x00FF0000
+PF_MASK  = 0x01FF0000
+# PF_MASK_old = 0x00FF0000
 
 TM_MASK = 0x00EB0000
 CM_MASK = 0x00EC0000
 ACK_MASK = 0x0E80000
+
+TOTAL_HEX_MASK = 0x03FFFF00
 
 #hilak constant:
 PS_MASK   = 0x0000FF0000
@@ -757,6 +759,8 @@ def parse_data_from_messages(sort_by_date):
 
         canId_number = int(canId_str,16)
         canID_hex = hex(canId_number)
+        # print(canId_number)
+        # print(parse_j1939_id(canId_number))
         pgn, da, sa = parse_j1939_id(canId_number)
 
         # filter by pgn
@@ -785,10 +789,6 @@ def parse_data_from_messages(sort_by_date):
 def parse_pgn_numbers(sort_by_date, pgn_list):
 
     data = json.load(file_json_file)
-
-
-
-
 
     list_to_compare = []
     for json_element in data:
@@ -827,6 +827,34 @@ def parse_pgn_numbers(sort_by_date, pgn_list):
         list_json.append(json_canid_pgn)
 
     return list_json
+
+
+def get_pgn_numbers_from_file(sort_by_date):
+ data = json.load(file_json_file)
+
+ pgn_set = set()
+ for json_element in data:
+   if (sort_by_date != ""):
+    msg_date = (json_element["dateHourSecondsTimeReceived"].strip())
+    if (not sort_by_date in msg_date):
+     continue
+
+   canId_str = (json_element['canId'].strip())
+
+   if (canId_str == "canId"):
+    # not a number
+    continue
+
+   canId_number = int(canId_str, 16)
+   canID_hex = hex(canId_number)
+   pgn, da, sa = parse_j1939_id(canId_number)
+
+   pgn_set.add( pgn)
+
+ pgn_list_sorted = list(pgn_set)
+ pgn_list_sorted.sort()
+
+ return pgn_list_sorted
 
 def parse_pgn_numbers_compare_online(sort_by_date, pgn_list,):
     data = json.load(file_json_file)
@@ -894,7 +922,7 @@ def parse_canid_pgn_numbers(sort_by_date):
         canId_number = int(canId_str,16)
         canID_hex = hex(canId_number)
         pgn, da, sa = parse_j1939_id(canId_number)
-
+        # pgn = parse_j1939_id2(canId_number)
         # filter by pgn
         # if (pgn!= 65272):
         #     continue
@@ -924,6 +952,8 @@ def parse_canid_pgn_numbers(sort_by_date):
                     difference_list_tuple.append((local_canid,online_canid, online_pgn,local_pgn) )
     # print(f"set_online_pgn: {set_online_pgn}")
 
+
+
     ret_list = list((set(difference_list_tuple)))
     ret_list.sort()
     return ret_list
@@ -940,9 +970,15 @@ def parse_j1939_id(can_id):
 
         pgn = pf * 256
 
+    #special cases:
+    # if(can_id == 0x1dff7a00):
+    #     return
+
 
 
     return pgn, da, sa
+
+
 
 def get_binary_array_skip_2(hex_string, len, bit_start, bit_end):
     current_bit = len - 1
@@ -1246,10 +1282,8 @@ def main():
 
     # output valid items
     # result_ls = parse_data_from_messages(sort_by_date=sort_by_date)
-    # print(f"result_ls: {result_ls}")
-
-
-    # out_put = open('json_files/output_final_with_descriptions_13_11_only_valid.json','w')
+    # # print(f"result_ls: {result_ls}")
+    # out_put = open('json_files/output_final_with_descriptions_13_11_only_valid_fixed_pgn_mask.json','w')
     # out_put.write(str(result_ls))
     # out_put.close()
 
@@ -1269,15 +1303,21 @@ def main():
     # out_put_only_pgn.write(str(ls_unique))
     # out_put_only_pgn.close()
 
-    # ls_canid_pgn = parse_pgn_numbers("13_11",pgn_list)
-    # out_put_only_pgn = open('json_files/canid_pgn_unique_by_canid_to_be_checked8.json','w')
-    # out_put_only_pgn.write(str(ls_canid_pgn))
-    # out_put_only_pgn.close()
 
-    result_ls = parse_canid_pgn_numbers(sort_by_date=sort_by_date)
-    # print(f"result_ls: {result_ls}")
-    for tup in result_ls:
-        print(tup)
+
+
+
+    #compare local_pgn with online canid_to_pgn tool result
+    # result_ls = parse_canid_pgn_numbers(sort_by_date=sort_by_date)
+    # # print(f"result_ls: {result_ls}")
+    # for tup in result_ls:
+    #     print(tup)
+
+    pgn_list = get_pgn_numbers_from_file("13_11")
+    out_put_only_pgn = open('json_files/output_only_pgn_numbers_from_table_fixed_mask.json','w')
+    out_put_only_pgn.write(str(pgn_list))
+    out_put_only_pgn.close()
+
     file_json_file.close()
 
 
@@ -1301,6 +1341,7 @@ def check_canid_to_pgn():
 
 
 main()
+
 
 # print(set({1, 2}).difference(set({2, 3}) ))
 
