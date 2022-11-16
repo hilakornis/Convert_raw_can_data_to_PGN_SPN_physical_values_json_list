@@ -7,9 +7,15 @@ import sys
 import math
 from collections import OrderedDict
 
+
+# DA_MASK = 0x0000EF00
 DA_MASK = 0x0000FF00
+
 SA_MASK = 0x000000FF
+
+# PF_MASK  = 0x01FF0000
 PF_MASK = 0x00FF0000
+
 TM_MASK = 0x00EB0000
 CM_MASK = 0x00EC0000
 ACK_MASK = 0x0E80000
@@ -24,6 +30,566 @@ ERROR_PHYSICAL = -1
 DEBUG_MODE = False
 
 file_json_file = open('json_files/truck_messages_13_11_22/truck_messages_13_11-3.json')
+
+online_canid_pgn = [
+ {
+  "canid": "0xc001027",
+  "online": 0
+ },
+ {
+  "canid": "0xc000127",
+  "online": 0
+ },
+ {
+  "canid": "0xc000027",
+  "online": 0
+ },
+ {
+  "canid": "0xc000021",
+  "online": 0
+ },
+ {
+  "canid": "0xc000003",
+  "online": 0
+ },
+ {
+  "canid": "0xc000f27",
+  "online": 0
+ },
+ {
+  "canid": "0xc010a21",
+  "online": 256
+ },
+ {
+  "canid": "0xc012171",
+  "online": 256
+ },
+ {
+  "canid": "0xc010305",
+  "online": 256
+ },
+ {
+  "canid": "0x18011771",
+  "online": 256
+ },
+ {
+  "canid": "0xc040b2a",
+  "online": 1024
+ },
+ {
+  "canid": "0x18701721",
+  "online": 28672
+ },
+ {
+  "canid": "0x1887fe21",
+  "online": 34560
+ },
+ {
+  "canid": "0x18a7ff21",
+  "online": 42752
+ },
+ {
+  "canid": "0x18e00027",
+  "online": 57344
+ },
+ {
+  "canid": "0x18e0ff00",
+  "online": 57344
+ },
+ {
+  "canid": "0x18e0ff21",
+  "online": 57344
+ },
+ {
+  "canid": "0x18e0ff27",
+  "online": 57344
+ },
+ {
+  "canid": "0x18ea001d",
+  "online": 59904
+ },
+ {
+  "canid": "0x18ea0017",
+  "online": 59904
+ },
+ {
+  "canid": "0x18ea0b27",
+  "online": 59904
+ },
+ {
+  "canid": "0x18ea2117",
+  "online": 59904
+ },
+ {
+  "canid": "0x18ea0b17",
+  "online": 59904
+ },
+ {
+  "canid": "0x18ea17f9",
+  "online": 59904
+ },
+ {
+  "canid": "0x18ebff0f",
+  "online": 60160
+ },
+ {
+  "canid": "0x18ebff00",
+  "online": 60160
+ },
+ {
+  "canid": "0x18ebff10",
+  "online": 60160
+ },
+ {
+  "canid": "0x1cebff00",
+  "online": 60160
+ },
+ {
+  "canid": "0x18ecff0f",
+  "online": 60416
+ },
+ {
+  "canid": "0x18efff21",
+  "online": 61184
+ },
+ {
+  "canid": "0x18efff00",
+  "online": 61184
+ },
+ {
+  "canid": "0x18f00010",
+  "online": 61440
+ },
+ {
+  "canid": "0x18f00021",
+  "online": 61440
+ },
+ {
+  "canid": "0x18f0000f",
+  "online": 61440
+ },
+ {
+  "canid": "0x18f0010b",
+  "online": 61441
+ },
+ {
+  "canid": "0x18f00121",
+  "online": 61441
+ },
+ {
+  "canid": "0xcf00203",
+  "online": 61442
+ },
+ {
+  "canid": "0xcf00300",
+  "online": 61443
+ },
+ {
+  "canid": "0xcf00327",
+  "online": 61443
+ },
+ {
+  "canid": "0xcf00400",
+  "online": 61444
+ },
+ {
+  "canid": "0x18f00503",
+  "online": 61445
+ },
+ {
+  "canid": "0x18f00621",
+  "online": 61446
+ },
+ {
+  "canid": "0x18f02300",
+  "online": 61475
+ },
+ {
+  "canid": "0x18fc4a00",
+  "online": 64586
+ },
+ {
+  "canid": "0x18fcbd00",
+  "online": 64701
+ },
+ {
+  "canid": "0x18fcdc00",
+  "online": 64732
+ },
+ {
+  "canid": "0x18fd0517",
+  "online": 64773
+ },
+ {
+  "canid": "0x18fd0621",
+  "online": 64774
+ },
+ {
+  "canid": "0x18fd0700",
+  "online": 64775
+ },
+ {
+  "canid": "0x18fd0721",
+  "online": 64775
+ },
+ {
+  "canid": "0x18fd0900",
+  "online": 64777
+ },
+ {
+  "canid": "0x18fd1721",
+  "online": 64791
+ },
+ {
+  "canid": "0x18fd2000",
+  "online": 64800
+ },
+ {
+  "canid": "0x14fd3e00",
+  "online": 64830
+ },
+ {
+  "canid": "0x18fd7c00",
+  "online": 64892
+ },
+ {
+  "canid": "0x18fd8321",
+  "online": 64899
+ },
+ {
+  "canid": "0x18fd9200",
+  "online": 64914
+ },
+ {
+  "canid": "0x18fda472",
+  "online": 64932
+ },
+ {
+  "canid": "0x18fda521",
+  "online": 64933
+ },
+ {
+  "canid": "0x18fdb200",
+  "online": 64946
+ },
+ {
+  "canid": "0x18fdc427",
+  "online": 64964
+ },
+ {
+  "canid": "0x18fdc421",
+  "online": 64964
+ },
+ {
+  "canid": "0x18fdc40b",
+  "online": 64964
+ },
+ {
+  "canid": "0x18fdc700",
+  "online": 64967
+ },
+ {
+  "canid": "0xcfdcc27",
+  "online": 64972
+ },
+ {
+  "canid": "0xcfdcc21",
+  "online": 64972
+ },
+ {
+  "canid": "0x18fdcd21",
+  "online": 64973
+ },
+ {
+  "canid": "0xcfe4127",
+  "online": 65089
+ },
+ {
+  "canid": "0xcfe4121",
+  "online": 65089
+ },
+ {
+  "canid": "0x18fe4a21",
+  "online": 65098
+ },
+ {
+  "canid": "0x18fe4e21",
+  "online": 65102
+ },
+ {
+  "canid": "0x18fe50f3",
+  "online": 65104
+ },
+ {
+  "canid": "0x18fe5121",
+  "online": 65105
+ },
+ {
+  "canid": "0x18fe5117",
+  "online": 65105
+ },
+ {
+  "canid": "0x18fe52f3",
+  "online": 65106
+ },
+ {
+  "canid": "0x18fe5600",
+  "online": 65110
+ },
+ {
+  "canid": "0x18fe5d00",
+  "online": 65117
+ },
+ {
+  "canid": "0x18fe6621",
+  "online": 65126
+ },
+ {
+  "canid": "0xcfe6cee",
+  "online": 65132
+ },
+ {
+  "canid": "0x18fe6f27",
+  "online": 65135
+ },
+ {
+  "canid": "0x1cfeac21",
+  "online": 65196
+ },
+ {
+  "canid": "0x18feae21",
+  "online": 65198
+ },
+ {
+  "canid": "0x18fec017",
+  "online": 65216
+ },
+ {
+  "canid": "0x18fec1ee",
+  "online": 65217
+ },
+ {
+  "canid": "0x1cfec321",
+  "online": 65219
+ },
+ {
+  "canid": "0x18feca21",
+  "online": 65226
+ },
+ {
+  "canid": "0x18feca27",
+  "online": 65226
+ },
+ {
+  "canid": "0x18feca00",
+  "online": 65226
+ },
+ {
+  "canid": "0x18feca19",
+  "online": 65226
+ },
+ {
+  "canid": "0x18feca71",
+  "online": 65226
+ },
+ {
+  "canid": "0x18fed521",
+  "online": 65237
+ },
+ {
+  "canid": "0x18fedf00",
+  "online": 65247
+ },
+ {
+  "canid": "0x18fee400",
+  "online": 65252
+ },
+ {
+  "canid": "0x18fee500",
+  "online": 65253
+ },
+ {
+  "canid": "0x18fee6ee",
+  "online": 65254
+ },
+ {
+  "canid": "0x18fee900",
+  "online": 65257
+ },
+ {
+  "canid": "0x18feed00",
+  "online": 65261
+ },
+ {
+  "canid": "0x18feee00",
+  "online": 65262
+ },
+ {
+  "canid": "0x18feef21",
+  "online": 65263
+ },
+ {
+  "canid": "0x18feef00",
+  "online": 65263
+ },
+ {
+  "canid": "0x18fef027",
+  "online": 65264
+ },
+ {
+  "canid": "0x18fef100",
+  "online": 65265
+ },
+ {
+  "canid": "0x18fef121",
+  "online": 65265
+ },
+ {
+  "canid": "0x18fef127",
+  "online": 65265
+ },
+ {
+  "canid": "0x18fef200",
+  "online": 65266
+ },
+ {
+  "canid": "0x18fef527",
+  "online": 65269
+ },
+ {
+  "canid": "0x18fef500",
+  "online": 65269
+ },
+ {
+  "canid": "0x18fef521",
+  "online": 65269
+ },
+ {
+  "canid": "0x18fef600",
+  "online": 65270
+ },
+ {
+  "canid": "0x18fef700",
+  "online": 65271
+ },
+ {
+  "canid": "0x18fef7f3",
+  "online": 65271
+ },
+ {
+  "canid": "0x18fef721",
+  "online": 65271
+ },
+ {
+  "canid": "0x18fef803",
+  "online": 65272
+ },
+ {
+  "canid": "0x18fefb10",
+  "online": 65275
+ },
+ {
+  "canid": "0x18fefc21",
+  "online": 65276
+ },
+ {
+  "canid": "0x18fefd21",
+  "online": 65277
+ },
+ {
+  "canid": "0xcff0027",
+  "online": 65280
+ },
+ {
+  "canid": "0x18ff0021",
+  "online": 65280
+ },
+ {
+  "canid": "0x18ff2100",
+  "online": 65313
+ },
+ {
+  "canid": "0x18ff2521",
+  "online": 65317
+ },
+ {
+  "canid": "0x18ff2517",
+  "online": 65317
+ },
+ {
+  "canid": "0x18ff3f21",
+  "online": 65343
+ },
+ {
+  "canid": "0x18ff6121",
+  "online": 65377
+ },
+ {
+  "canid": "0x18ff6221",
+  "online": 65378
+ },
+ {
+  "canid": "0x1cff6527",
+  "online": 65381
+ },
+ {
+  "canid": "0x1dff7800",
+  "online": 130936
+ },
+ {
+  "canid": "0x1dff7900",
+  "online": "#REF!"
+ },
+ {
+  "canid": "0x1dff7a00",
+  "online": 130937
+ },
+ {
+  "canid": "0x1dff7b00",
+  "online": 130939
+ },
+ {
+  "canid": "0x1dff7c00",
+  "online": 130940
+ },
+ {
+  "canid": "0x1dff7d00",
+  "online": 130941
+ },
+ {
+  "canid": "0x18ff8421",
+  "online": 65412
+ },
+ {
+  "canid": "0x18ffc272",
+  "online": 65474
+ },
+ {
+  "canid": "0xcffd221",
+  "online": 65490
+ },
+ {
+  "canid": "0x18ffd321",
+  "online": 65491
+ },
+ {
+  "canid": "0x18ffd421",
+  "online": 65492
+ },
+ {
+  "canid": "0x18ffda21",
+  "online": 65498
+ },
+ {
+  "canid": "0x18ffda19",
+  "online": 65498
+ },
+ {
+  "canid": "0x18ffdf27",
+  "online": 65503
+ }
+]
+
 # ex: get_only_data(61444, "ff ff ff 68 13 ff ff ff")
 def get_only_data(canID_hex, pgn, strCanData, systemTickTimestamp):
     # Getting from  j1939 protocol data values to calculate
@@ -161,6 +727,7 @@ def get_str_CanData(strCanData):
     strCanData_on_size_of_on_left = res.strip()
     return size_of_data, strCanData_on_size_of_on_left
 
+
 def parse_data_from_messages(sort_by_date):
 
     data = json.load(file_json_file)
@@ -215,18 +782,164 @@ def parse_data_from_messages(sort_by_date):
 
     return list_to_send
 
+def parse_pgn_numbers(sort_by_date, pgn_list):
+
+    data = json.load(file_json_file)
+
+
+
+
+
+    list_to_compare = []
+    for json_element in data:
+        if(sort_by_date != ""):
+            msg_date = (json_element["dateHourSecondsTimeReceived"].strip())
+            if(not sort_by_date in msg_date):
+                continue
+
+
+
+        canId_str = (json_element['canId'].strip())
+
+        if(canId_str == "canId"):
+            # not a number
+            continue
+
+        canId_number = int(canId_str,16)
+        canID_hex = hex(canId_number)
+        pgn, da, sa = parse_j1939_id(canId_number)
+
+        tuple_canid_pgn = (canID_hex,pgn)
+
+        list_to_compare.append(tuple_canid_pgn)
+
+
+
+    set_canid_pgn = set(list_to_compare)
+    list_unique_canid_pgn = list(set_canid_pgn)
+    list_unique_canid_pgn.sort(key= lambda a: a[1])
+
+    list_json = []
+    for tup in list_unique_canid_pgn:
+        json_canid_pgn = {}
+        json_canid_pgn["canid"] = tup[0]
+        json_canid_pgn["pgn_number"] = tup[1]
+        list_json.append(json_canid_pgn)
+
+    return list_json
+
+def parse_pgn_numbers_compare_online(sort_by_date, pgn_list,):
+    data = json.load(file_json_file)
+
+    list_to_compare = []
+    for json_element in data:
+        if(sort_by_date != ""):
+            msg_date = (json_element["dateHourSecondsTimeReceived"].strip())
+            if(not sort_by_date in msg_date):
+                continue
+
+
+
+        canId_str = (json_element['canId'].strip())
+
+        if(canId_str == "canId"):
+            # not a number
+            continue
+
+        canId_number = int(canId_str,16)
+        canID_hex = hex(canId_number)
+        pgn, da, sa = parse_j1939_id(canId_number)
+
+        tuple_canid_pgn = (canID_hex,pgn)
+
+        list_to_compare.append(tuple_canid_pgn)
+
+
+
+    set_canid_pgn = set(list_to_compare)
+    list_unique_canid_pgn = list(set_canid_pgn)
+    list_unique_canid_pgn.sort(key= lambda a: a[1])
+
+    list_json = []
+    for tup in list_unique_canid_pgn:
+        json_canid_pgn = {}
+        json_canid_pgn["canid"] = tup[0]
+        json_canid_pgn["pgn_number"] = tup[1]
+        list_json.append(json_canid_pgn)
+
+    return list_json
+
+def parse_canid_pgn_numbers(sort_by_date):
+
+    data = json.load(file_json_file)
+
+    ls_can_id_pgn_dic = []
+    for json_element in data:
+        dict_canid_pgn_element = {}
+        if(sort_by_date != ""):
+            msg_date = (json_element["dateHourSecondsTimeReceived"].strip())
+
+            if(not sort_by_date in msg_date):
+
+                continue
+
+        canId_str = (json_element['canId'].strip())
+        strCanData = (json_element['strCanData'].strip())
+
+
+        if(canId_str == "canId"):
+            # not a number
+            continue
+
+        canId_number = int(canId_str,16)
+        canID_hex = hex(canId_number)
+        pgn, da, sa = parse_j1939_id(canId_number)
+
+        # filter by pgn
+        # if (pgn!= 65272):
+        #     continue
+
+        # filter by canId_str
+        # if(canId_str != "0x18e00027"):
+        #     # not a number
+        #     continue
+        if(DEBUG_MODE):
+            print(f"canID_hex: {canID_hex}, pgn:{pgn}")
+        dict_canid_pgn_element["canid"] = canId_str
+        dict_canid_pgn_element["pgn_local"] = pgn
+        ls_can_id_pgn_dic.append(dict_canid_pgn_element)
+
+
+    difference_list = []
+    difference_list_tuple = []
+    for local_canid_pgn_element in ls_can_id_pgn_dic:
+        local_canid = local_canid_pgn_element["canid"]
+        for online_canid_pgn_element in online_canid_pgn:
+            online_canid = online_canid_pgn_element["canid"]
+            if(local_canid == online_canid ):
+                online_pgn = online_canid_pgn_element["online"]
+                local_pgn = local_canid_pgn_element["pgn_local"]
+                if(online_pgn != local_pgn):
+                    # difference_list.append({"local_canid":local_canid, "online_canid":online_canid,"online_pgn" : online_pgn, "local_pgn":local_pgn})
+                    difference_list_tuple.append((local_canid,online_canid, online_pgn,local_pgn) )
+    # print(f"set_online_pgn: {set_online_pgn}")
+
+    ret_list = list((set(difference_list_tuple)))
+    ret_list.sort()
+    return ret_list
+
 def parse_j1939_id(can_id):
     sa = SA_MASK & can_id
     pf = (PF_MASK & can_id) >> 16
     da = (DA_MASK & can_id) >> 8
 
-
-
     if pf >= 240:  # PDU2 format
         pgn = pf * 256 + da
         da = 0xFF
     else:
+
         pgn = pf * 256
+
 
 
     return pgn, da, sa
@@ -526,26 +1239,78 @@ def test_byte_reader(pgn, candata):
 
     # ls_result_for_pgn = get_only_data(canID_hex="",strCanData=candata, pgn=pgn,systemTickTimestamp="")
 
+
+
 def main():
     sort_by_date = ""
 
-    result_ls = parse_data_from_messages(sort_by_date=sort_by_date)
-    print(f"result_ls: {result_ls}")
-
-    #output
-
-    out_put = open('json_files/output_final_with_descriptions_13_11_only_valid.json','w')
-    out_put.write(str(result_ls))
-    out_put.close()
+    # output valid items
+    # result_ls = parse_data_from_messages(sort_by_date=sort_by_date)
+    # print(f"result_ls: {result_ls}")
 
 
+    # out_put = open('json_files/output_final_with_descriptions_13_11_only_valid.json','w')
+    # out_put.write(str(result_ls))
+    # out_put.close()
+
+
+    #output_pgns
+    # result_ls = parse_pgn_numbers(sort_by_date=sort_by_date)
+    # set_result = set(result_ls)
+    # ls_unique = list(set_result)
+    # ls_unique.sort()
+    # print(f"result_ls: {ls_unique}")
+    #
+    # out_put_only_pgn = open('json_files/output_only_pgn_numbers_from_table.json','w')
+    # out_put_only_pgn.write(str(ls_unique))
+    # out_put_only_pgn.close()
+
+    # out_put_only_pgn = open('json_files/output_only_pgn_numbers_from_table.json','w')
+    # out_put_only_pgn.write(str(ls_unique))
+    # out_put_only_pgn.close()
+
+    # ls_canid_pgn = parse_pgn_numbers("13_11",pgn_list)
+    # out_put_only_pgn = open('json_files/canid_pgn_unique_by_canid_to_be_checked8.json','w')
+    # out_put_only_pgn.write(str(ls_canid_pgn))
+    # out_put_only_pgn.close()
+
+    result_ls = parse_canid_pgn_numbers(sort_by_date=sort_by_date)
+    # print(f"result_ls: {result_ls}")
+    for tup in result_ls:
+        print(tup)
     file_json_file.close()
 
 
 
+def check_canid_to_pgn():
+    # canid = "0x1dff7800" #ok
+    # canid = "0x1dff7900" # //
+    # canid = "0x1dff7a00" # //
+    # canid = "0x1dff7b00" # ok
+    # canid = "0x1dff7c00" # ok
+    # canid = "0x1dff7d00" # ok
+    # canid = "0x18ffc272"
+    canid = "0xcffd221" # ok
+    pgn, da, sa = parse_j1939_id(int(canid,16))
+
+    print(pgn)
+
+    print(bin(int(canid,16)))
+    print(bin(65490))
+    print(bin(65474))
+
 
 main()
-# main()
+
+# print(set({1, 2}).difference(set({2, 3}) ))
+
+
+# compare_pgns()
+
+# check_canid_to_pgn()
+
+
+
 # Tests:
 # test_with_assert()
 

@@ -1,0 +1,697 @@
+[
+ {
+  "canid": "0xc000127",
+  "pgn_code": 0,
+  "online_tool": 0
+ },
+ {
+  "canid": "0xc000027",
+  "pgn_code": 0,
+  "online_tool": 0
+ },
+ {
+  "canid": "0xc000021",
+  "pgn_code": 0,
+  "online_tool": 0
+ },
+ {
+  "canid": "0xc000f27",
+  "pgn_code": 0,
+  "online_tool": 0
+ },
+ {
+  "canid": "0xc000003",
+  "pgn_code": 0,
+  "online_tool": 0
+ },
+ {
+  "canid": "0xc001027",
+  "pgn_code": 0,
+  "online_tool": 0
+ },
+ {
+  "canid": "0xc010305",
+  "pgn_code": 256,
+  "online_tool": 256
+ },
+ {
+  "canid": "0x18011771",
+  "pgn_code": 256,
+  "online_tool": 256
+ },
+ {
+  "canid": "0xc012171",
+  "pgn_code": 256,
+  "online_tool": 256
+ },
+ {
+  "canid": "0xc010a21",
+  "pgn_code": 256,
+  "online_tool": 256
+ },
+ {
+  "canid": "0xc040b2a",
+  "pgn_code": 1024,
+  "online_tool": 1024
+ },
+ {
+  "canid": "0x18701721",
+  "pgn_code": 28672,
+  "online_tool": 28672
+ },
+ {
+  "canid": "0x1887fe21",
+  "pgn_code": 34560,
+  "online_tool": 34560
+ },
+ {
+  "canid": "0x18a7ff21",
+  "pgn_code": 42752,
+  "online_tool": 42752
+ },
+ {
+  "canid": "0x18e00027",
+  "pgn_code": 57344,
+  "online_tool": 57344
+ },
+ {
+  "canid": "0x18e0ff00",
+  "pgn_code": 57344,
+  "online_tool": 57344
+ },
+ {
+  "canid": "0x18e0ff21",
+  "pgn_code": 57344,
+  "online_tool": 57344
+ },
+ {
+  "canid": "0x18e0ff27",
+  "pgn_code": 57344,
+  "online_tool": 57344
+ },
+ {
+  "canid": "0x18ea0b27",
+  "pgn_code": 59904,
+  "online_tool": 59904
+ },
+ {
+  "canid": "0x18ea2117",
+  "pgn_code": 59904,
+  "online_tool": 59904
+ },
+ {
+  "canid": "0x18ea0017",
+  "pgn_code": 59904,
+  "online_tool": 59904
+ },
+ {
+  "canid": "0x18ea17f9",
+  "pgn_code": 59904,
+  "online_tool": 59904
+ },
+ {
+  "canid": "0x18ea001d",
+  "pgn_code": 59904,
+  "online_tool": 59904
+ },
+ {
+  "canid": "0x18ea0b17",
+  "pgn_code": 59904,
+  "online_tool": 59904
+ },
+ {
+  "canid": "0x1cebff00",
+  "pgn_code": 60160,
+  "online_tool": 60160
+ },
+ {
+  "canid": "0x18ebff10",
+  "pgn_code": 60160,
+  "online_tool": 60160
+ },
+ {
+  "canid": "0x18ebff00",
+  "pgn_code": 60160,
+  "online_tool": 60160
+ },
+ {
+  "canid": "0x18ebff0f",
+  "pgn_code": 60160,
+  "online_tool": 60160
+ },
+ {
+  "canid": "0x18ecff0f",
+  "pgn_code": 60416,
+  "online_tool": 60416
+ },
+ {
+  "canid": "0x18efff00",
+  "pgn_code": 61184,
+  "online_tool": 61184
+ },
+ {
+  "canid": "0x18efff21",
+  "pgn_code": 61184,
+  "online_tool": 61184
+ },
+ {
+  "canid": "0x18f00021",
+  "pgn_code": 61440,
+  "online_tool": 61440
+ },
+ {
+  "canid": "0x18f00010",
+  "pgn_code": 61440,
+  "online_tool": 61440
+ },
+ {
+  "canid": "0x18f0000f",
+  "pgn_code": 61440,
+  "online_tool": 61440
+ },
+ {
+  "canid": "0x18f0010b",
+  "pgn_code": 61441,
+  "online_tool": 61441
+ },
+ {
+  "canid": "0x18f00121",
+  "pgn_code": 61441,
+  "online_tool": 61441
+ },
+ {
+  "canid": "0xcf00203",
+  "pgn_code": 61442,
+  "online_tool": 61442
+ },
+ {
+  "canid": "0xcf00300",
+  "pgn_code": 61443,
+  "online_tool": 61443
+ },
+ {
+  "canid": "0xcf00327",
+  "pgn_code": 61443,
+  "online_tool": 61443
+ },
+ {
+  "canid": "0xcf00400",
+  "pgn_code": 61444,
+  "online_tool": 61444
+ },
+ {
+  "canid": "0x18f00503",
+  "pgn_code": 61445,
+  "online_tool": 61445
+ },
+ {
+  "canid": "0x18f00621",
+  "pgn_code": 61446,
+  "online_tool": 61446
+ },
+ {
+  "canid": "0x18f02300",
+  "pgn_code": 61475,
+  "online_tool": 61475
+ },
+ {
+  "canid": "0x18fc4a00",
+  "pgn_code": 64586,
+  "online_tool": 64586
+ },
+ {
+  "canid": "0x18fcbd00",
+  "pgn_code": 64701,
+  "online_tool": 64701
+ },
+ {
+  "canid": "0x18fcdc00",
+  "pgn_code": 64732,
+  "online_tool": 64732
+ },
+ {
+  "canid": "0x18fd0517",
+  "pgn_code": 64773,
+  "online_tool": 64773
+ },
+ {
+  "canid": "0x18fd0621",
+  "pgn_code": 64774,
+  "online_tool": 64774
+ },
+ {
+  "canid": "0x18fd0721",
+  "pgn_code": 64775,
+  "online_tool": 64775
+ },
+ {
+  "canid": "0x18fd0700",
+  "pgn_code": 64775,
+  "online_tool": 64775
+ },
+ {
+  "canid": "0x18fd0900",
+  "pgn_code": 64777,
+  "online_tool": 64777
+ },
+ {
+  "canid": "0x18fd1721",
+  "pgn_code": 64791,
+  "online_tool": 64791
+ },
+ {
+  "canid": "0x18fd2000",
+  "pgn_code": 64800,
+  "online_tool": 64800
+ },
+ {
+  "canid": "0x14fd3e00",
+  "pgn_code": 64830,
+  "online_tool": 64830
+ },
+ {
+  "canid": "0x18fd7c00",
+  "pgn_code": 64892,
+  "online_tool": 64892
+ },
+ {
+  "canid": "0x18fd8321",
+  "pgn_code": 64899,
+  "online_tool": 64899
+ },
+ {
+  "canid": "0x18fd9200",
+  "pgn_code": 64914,
+  "online_tool": 64914
+ },
+ {
+  "canid": "0x18fda472",
+  "pgn_code": 64932,
+  "online_tool": 64932
+ },
+ {
+  "canid": "0x18fda521",
+  "pgn_code": 64933,
+  "online_tool": 64933
+ },
+ {
+  "canid": "0x18fdb200",
+  "pgn_code": 64946,
+  "online_tool": 64946
+ },
+ {
+  "canid": "0x18fdc427",
+  "pgn_code": 64964,
+  "online_tool": 64964
+ },
+ {
+  "canid": "0x18fdc40b",
+  "pgn_code": 64964,
+  "online_tool": 64964
+ },
+ {
+  "canid": "0x18fdc421",
+  "pgn_code": 64964,
+  "online_tool": 64964
+ },
+ {
+  "canid": "0x18fdc700",
+  "pgn_code": 64967,
+  "online_tool": 64967
+ },
+ {
+  "canid": "0xcfdcc27",
+  "pgn_code": 64972,
+  "online_tool": 64972
+ },
+ {
+  "canid": "0xcfdcc21",
+  "pgn_code": 64972,
+  "online_tool": 64972
+ },
+ {
+  "canid": "0x18fdcd21",
+  "pgn_code": 64973,
+  "online_tool": 64973
+ },
+ {
+  "canid": "0xcfe4121",
+  "pgn_code": 65089,
+  "online_tool": 65089
+ },
+ {
+  "canid": "0xcfe4127",
+  "pgn_code": 65089,
+  "online_tool": 65089
+ },
+ {
+  "canid": "0x18fe4a21",
+  "pgn_code": 65098,
+  "online_tool": 65098
+ },
+ {
+  "canid": "0x18fe4e21",
+  "pgn_code": 65102,
+  "online_tool": 65102
+ },
+ {
+  "canid": "0x18fe50f3",
+  "pgn_code": 65104,
+  "online_tool": 65104
+ },
+ {
+  "canid": "0x18fe5117",
+  "pgn_code": 65105,
+  "online_tool": 65105
+ },
+ {
+  "canid": "0x18fe5121",
+  "pgn_code": 65105,
+  "online_tool": 65105
+ },
+ {
+  "canid": "0x18fe52f3",
+  "pgn_code": 65106,
+  "online_tool": 65106
+ },
+ {
+  "canid": "0x18fe5600",
+  "pgn_code": 65110,
+  "online_tool": 65110
+ },
+ {
+  "canid": "0x18fe5d00",
+  "pgn_code": 65117,
+  "online_tool": 65117
+ },
+ {
+  "canid": "0x18fe6621",
+  "pgn_code": 65126,
+  "online_tool": 65126
+ },
+ {
+  "canid": "0xcfe6cee",
+  "pgn_code": 65132,
+  "online_tool": 65132
+ },
+ {
+  "canid": "0x18fe6f27",
+  "pgn_code": 65135,
+  "online_tool": 65135
+ },
+ {
+  "canid": "0x1cfeac21",
+  "pgn_code": 65196,
+  "online_tool": 65196
+ },
+ {
+  "canid": "0x18feae21",
+  "pgn_code": 65198,
+  "online_tool": 65198
+ },
+ {
+  "canid": "0x18fec017",
+  "pgn_code": 65216,
+  "online_tool": 65216
+ },
+ {
+  "canid": "0x18fec1ee",
+  "pgn_code": 65217,
+  "online_tool": 65217
+ },
+ {
+  "canid": "0x1cfec321",
+  "pgn_code": 65219,
+  "online_tool": 65219
+ },
+ {
+  "canid": "0x18feca27",
+  "pgn_code": 65226,
+  "online_tool": 65226
+ },
+ {
+  "canid": "0x18feca19",
+  "pgn_code": 65226,
+  "online_tool": 65226
+ },
+ {
+  "canid": "0x18feca71",
+  "pgn_code": 65226,
+  "online_tool": 65226
+ },
+ {
+  "canid": "0x18feca00",
+  "pgn_code": 65226,
+  "online_tool": 65226
+ },
+ {
+  "canid": "0x18feca21",
+  "pgn_code": 65226,
+  "online_tool": 65226
+ },
+ {
+  "canid": "0x18fed521",
+  "pgn_code": 65237,
+  "online_tool": 65237
+ },
+ {
+  "canid": "0x18fedf00",
+  "pgn_code": 65247,
+  "online_tool": 65247
+ },
+ {
+  "canid": "0x18fee400",
+  "pgn_code": 65252,
+  "online_tool": 65252
+ },
+ {
+  "canid": "0x18fee500",
+  "pgn_code": 65253,
+  "online_tool": 65253
+ },
+ {
+  "canid": "0x18fee6ee",
+  "pgn_code": 65254,
+  "online_tool": 65254
+ },
+ {
+  "canid": "0x18fee900",
+  "pgn_code": 65257,
+  "online_tool": 65257
+ },
+ {
+  "canid": "0x18feed00",
+  "pgn_code": 65261,
+  "online_tool": 65261
+ },
+ {
+  "canid": "0x18feee00",
+  "pgn_code": 65262,
+  "online_tool": 65262
+ },
+ {
+  "canid": "0x18feef21",
+  "pgn_code": 65263,
+  "online_tool": 65263
+ },
+ {
+  "canid": "0x18feef00",
+  "pgn_code": 65263,
+  "online_tool": 65263
+ },
+ {
+  "canid": "0x18fef027",
+  "pgn_code": 65264,
+  "online_tool": 65264
+ },
+ {
+  "canid": "0x18fef100",
+  "pgn_code": 65265,
+  "online_tool": 65265
+ },
+ {
+  "canid": "0x18fef121",
+  "pgn_code": 65265,
+  "online_tool": 65265
+ },
+ {
+  "canid": "0x18fef127",
+  "pgn_code": 65265,
+  "online_tool": 65265
+ },
+ {
+  "canid": "0x18fef200",
+  "pgn_code": 65266,
+  "online_tool": 65266
+ },
+ {
+  "canid": "0x18fef527",
+  "pgn_code": 65269,
+  "online_tool": 65269
+ },
+ {
+  "canid": "0x18fef500",
+  "pgn_code": 65269,
+  "online_tool": 65269
+ },
+ {
+  "canid": "0x18fef521",
+  "pgn_code": 65269,
+  "online_tool": 65269
+ },
+ {
+  "canid": "0x18fef600",
+  "pgn_code": 65270,
+  "online_tool": 65270
+ },
+ {
+  "canid": "0x18fef7f3",
+  "pgn_code": 65271,
+  "online_tool": 65271
+ },
+ {
+  "canid": "0x18fef700",
+  "pgn_code": 65271,
+  "online_tool": 65271
+ },
+ {
+  "canid": "0x18fef721",
+  "pgn_code": 65271,
+  "online_tool": 65271
+ },
+ {
+  "canid": "0x18fef803",
+  "pgn_code": 65272,
+  "online_tool": 65272
+ },
+ {
+  "canid": "0x18fefb10",
+  "pgn_code": 65275,
+  "online_tool": 65275
+ },
+ {
+  "canid": "0x18fefc21",
+  "pgn_code": 65276,
+  "online_tool": 65276
+ },
+ {
+  "canid": "0x18fefd21",
+  "pgn_code": 65277,
+  "online_tool": 65277
+ },
+ {
+  "canid": "0x18ff0021",
+  "pgn_code": 65280,
+  "online_tool": 65280
+ },
+ {
+  "canid": "0xcff0027",
+  "pgn_code": 65280,
+  "online_tool": 65280
+ },
+ {
+  "canid": "0x18ff2100",
+  "pgn_code": 65313,
+  "online_tool": 65313
+ },
+ {
+  "canid": "0x18ff2521",
+  "pgn_code": 65317,
+  "online_tool": 65317
+ },
+ {
+  "canid": "0x18ff2517",
+  "pgn_code": 65317,
+  "online_tool": 65317
+ },
+ {
+  "canid": "0x18ff3f21",
+  "pgn_code": 65343,
+  "online_tool": 65343
+ },
+ {
+  "canid": "0x18ff6121",
+  "pgn_code": 65377,
+  "online_tool": 65377
+ },
+ {
+  "canid": "0x18ff6221",
+  "pgn_code": 65378,
+  "online_tool": 65378
+ },
+ {
+  "canid": "0x1cff6527",
+  "pgn_code": 65381,
+  "online_tool": 65381
+ },
+ {
+  "canid": "0x1dff7800",
+  "pgn_code": 65400,
+  "online_tool": 130936
+ },
+ {
+  "canid": "0x1dff7900",
+  "pgn_code": 65401,
+  "online_tool": "#REF!"
+ },
+ {
+  "canid": "0x1dff7a00",
+  "pgn_code": 65402,
+  "online_tool": 130937
+ },
+ {
+  "canid": "0x1dff7b00",
+  "pgn_code": 65403,
+  "online_tool": 130939
+ },
+ {
+  "canid": "0x1dff7c00",
+  "pgn_code": 65404,
+  "online_tool": 130940
+ },
+ {
+  "canid": "0x1dff7d00",
+  "pgn_code": 65405,
+  "online_tool": 130941
+ },
+ {
+  "canid": "0x18ff8421",
+  "pgn_code": 65412,
+  "online_tool": 65412
+ },
+ {
+  "canid": "0x18ffc272",
+  "pgn_code": 65474,
+  "online_tool": 65474
+ },
+ {
+  "canid": "0xcffd221",
+  "pgn_code": 65490,
+  "online_tool": 65490
+ },
+ {
+  "canid": "0x18ffd321",
+  "pgn_code": 65491,
+  "online_tool": 65491
+ },
+ {
+  "canid": "0x18ffd421",
+  "pgn_code": 65492,
+  "online_tool": 65492
+ },
+ {
+  "canid": "0x18ffda21",
+  "pgn_code": 65498,
+  "online_tool": 65498
+ },
+ {
+  "canid": "0x18ffda19",
+  "pgn_code": 65498,
+  "online_tool": 65498
+ },
+ {
+  "canid": "0x18ffdf27",
+  "pgn_code": 65503,
+  "online_tool": 65503
+ }
+]
